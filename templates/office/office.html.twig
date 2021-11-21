@@ -1,0 +1,44 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    Offices</title>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block body %} 
+    <h1 class="text-center" style="margin-top: 10px;"><i class="fas fa-users"></i>Offices</h1>
+    <div class="container position-relative">
+        <div class="row ">
+            <div class="col-11 mx-auto d-block">
+                <hr>
+                <div class="card " style="margin-bottom: 10px;">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th class="text-center">Dirección</th>
+                                    <th>Territorio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for office in lista %}
+                                    <tr>
+                                        <td>{{ office.officecode }}</td>
+                                        <td>{{ office.addressline1 }}, {{ office.addressline2 }}, {{ office.postalcode }}, {{ office.city }}, {{ office.state }}, {{ office.country }}</td>
+                                        <td>{{ office.territory }}</td>
+                                        <td>
+                                            <button class="btn btn-outline-danger text-center">Eliminar</button>
+                                            <button class="btn btn-outline-warning text-center">Modificar</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

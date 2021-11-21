@@ -1,0 +1,42 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    Product Lines</title>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block body %} 
+    <h1 class="text-center" style="margin-top: 10px;"><i class="fas fa-users"></i>Product Lines</h1>
+    <div class="container position-relative">
+        <div class="row ">
+            <div class="col-11 mx-auto d-block">
+                <hr>
+                <div class="card " style="margin-bottom: 10px;">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th class="text-center">Descripción</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pl in lista %}
+                                    <tr>
+                                        <td>{{ pl.productline }}</td>
+                                        <td>{{ pl.textdescription }}</td>
+                                        <td>
+                                            <button class="btn btn-outline-danger text-center">Eliminar</button>
+                                            <button class="btn btn-outline-warning text-center">Modificar</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

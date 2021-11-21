@@ -1,0 +1,54 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    Product</title>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block body %} 
+    <h1 class="text-center" style="margin-top: 10px;"><i class="fas fa-users"></i>Product</h1>
+    <div class="container position-relative">
+        <div class="row ">
+            <div class="col-12 mx-auto d-block">
+                <hr>
+                <div class="card " style="margin-bottom: 10px;">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Escala</th>
+                                    <th>Vendedor</th>
+                                    <th class="text-center">Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>MSRP</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in lista %}
+                                    <tr>
+                                        <td>{{ product.productcode }}</td>
+                                        <td>{{ product.productname }}</td>
+                                        <td>{{ product.productscale }}</td>
+                                        <td>{{ product.productvendor }}</td>
+                                        <td>{{ product.productdescription }}</td>
+                                        <td>{{ product.quantityinstock }}</td>
+                                        <td>{{ product.buyprice }}</td>
+                                        <td>{{ product.msrp }}</td>
+                                        <td>
+                                            <button class="btn btn-outline-danger text-center">Eliminar</button>
+                                            <button class="btn btn-outline-warning text-center">Modificar</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
